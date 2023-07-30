@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaiveca- <jaiveca-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/29 20:28:49 by jaiveca-          #+#    #+#             */
-/*   Updated: 2023/07/30 14:05:25 by jaiveca-         ###   ########.fr       */
+/*   Created: 2023/07/30 13:42:57 by jaiveca-          #+#    #+#             */
+/*   Updated: 2023/07/30 16:44:22 by jaiveca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_HPP
-# define BUREAUCRAT_HPP
+#ifndef FORM_HPP
+# define FORM_HPP
 
+#include "Bureaucrat.hpp"
 #include <string>
 #include <iostream>
 #include <exception>
 
-class	Bureaucrat
+class Bureaucrat;
+
+class	Form
 {
 	public:
 		
-		Bureaucrat();
-		Bureaucrat(const Bureaucrat &target);
-		Bureaucrat(std::string name, int grade);
-		~Bureaucrat();
+		Form();
+		Form(const Form &target);
+		Form(std::string name, int grade_to_sign, int grade_to_execute);
+		~Form();
 
-		Bureaucrat	&operator=(const Bureaucrat &target);
+		Form		&operator=(const Form &target);
 		std::string	getName() const;
-		int			getGrade() const;
-		void		incrementGrade();
-		void		decrementGrade();
+		bool		getIsSigned() const;
+		int			getGradeToSign() const;
+		int			getGradeToExecute() const;
+		void		beSigned(Bureaucrat &target);
 
 		class GradeTooLowException: public std::exception
 		{
@@ -45,9 +49,11 @@ class	Bureaucrat
 	private:
 	
 		const std::string	_name;
-		int					_grade;
+		bool				_is_signed;
+		const int			_grade_to_sign;
+		const int			_grade_to_execute;
 };
 
-std::ostream	&operator<<(std::ostream &os, const Bureaucrat &target);
+std::ostream	&operator<<(std::ostream &os, const Form &target);
 
 #endif
