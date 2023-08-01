@@ -31,6 +31,7 @@ class	AForm
 
 		AForm				&operator=(const AForm &target);
 		std::string			getName() const;
+		void				setName(std::string name);
 		bool				getIsSigned() const;
 		int					getGradeToSign() const;
 		int					getGradeToExecute() const;
@@ -43,6 +44,11 @@ class	AForm
 		};
 
 		class GradeTooHighException: public std::exception
+		{
+			virtual const char* what() const throw();
+		};
+
+		class UnsignedException: public std::exception
 		{
 			virtual const char* what() const throw();
 		};

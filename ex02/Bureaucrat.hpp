@@ -6,7 +6,7 @@
 /*   By: jaiveca- <jaiveca-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 20:28:49 by jaiveca-          #+#    #+#             */
-/*   Updated: 2023/07/30 18:42:49 by jaiveca-         ###   ########.fr       */
+/*   Updated: 2023/08/01 16:08:35 by jaiveca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ class	Bureaucrat
 		void		incrementGrade();
 		void		decrementGrade();
 		void		signForm(AForm &target);
+		void		executeForm(AForm const &form);
 
 		class GradeTooLowException: public std::exception
 		{

@@ -79,9 +79,14 @@ const char *AForm::GradeTooHighException::what() const throw()
 	return ("Error: Grade too high.");
 }
 
+const char *AForm::UnsignedException::what() const throw()
+{
+	return ("Error: The form is unsigned.");
+}
+
 std::ostream	&operator<<(std::ostream &os, const AForm &target)
 {
-	os << "AForm name: " << target.getName() << std::endl
+	os << "Type: " << target.getName() << std::endl
 	<< "Signed: " << (target.getIsSigned() ? "Yes" : "No") << std::endl
 	<< "Grade required to sign: " << target.getGradeToSign() << std::endl
 	<< "Grade required to execute: " << target.getGradeToExecute() << std::endl;

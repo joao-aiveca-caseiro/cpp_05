@@ -6,7 +6,7 @@
 /*   By: jaiveca- <jaiveca-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 17:54:58 by jaiveca-          #+#    #+#             */
-/*   Updated: 2023/07/30 18:44:52 by jaiveca-         ###   ########.fr       */
+/*   Updated: 2023/08/01 15:25:20 by jaiveca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,14 @@ class PresidentialPardonForm: public AForm
 		PresidentialPardonForm(const PresidentialPardonForm &target);
 		PresidentialPardonForm(std::string name);
 		~PresidentialPardonForm();
+
+		PresidentialPardonForm	&operator=(const PresidentialPardonForm &target);
+		void					execute(Bureaucrat const &executor) const;
+		std::string				getTarget() const;
+
+	private:
+	
+		std::string	_target;
 };
 
 #endif

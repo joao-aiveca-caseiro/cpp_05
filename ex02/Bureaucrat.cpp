@@ -6,12 +6,12 @@
 /*   By: jaiveca- <jaiveca-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 21:23:34 by jaiveca-          #+#    #+#             */
-/*   Updated: 2023/07/30 18:43:06 by jaiveca-         ###   ########.fr       */
+/*   Updated: 2023/08/01 18:24:25 by jaiveca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat(): _grade(150){}
 
@@ -85,6 +85,20 @@ void	Bureaucrat::signForm(AForm &target)
 	else
 		std::cerr << this->getName() << " couldn't sign " << target.getName()
 		<< " because it is already signed." << std::endl;
+}
+
+void	Bureaucrat::executeForm(AForm const &target)
+{
+	try
+	{
+		target.execute(*this);
+		std::cout << this->getName() << " executed " << target.getName() << "." << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << this->getName() << " couldn't execute " << target.getName() 
+		<< " because... " << e.what() << std::endl;
+	}		
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const throw()
