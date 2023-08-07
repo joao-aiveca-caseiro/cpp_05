@@ -6,7 +6,7 @@
 /*   By: jaiveca- <jaiveca-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 21:23:34 by jaiveca-          #+#    #+#             */
-/*   Updated: 2023/08/07 00:48:14 by jaiveca-         ###   ########.fr       */
+/*   Updated: 2023/08/07 02:14:41 by jaiveca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,14 @@ void	Bureaucrat::incrementGrade()
 		this->_grade = this->getGrade() - 1;
 }
 
-void	Bureaucrat::signForm(Form &target)
+void	Bureaucrat::signForm(AForm &target)
 {
 	if (!target.getIsSigned())
 	{
 		try
 		{
 			target.beSigned(*this);
-			std::cout << this->getName() << " signed " << target.getName() << "!" << std::endl;
+			std::cout << this->getName() << " signed " << target.getName() << "." << std::endl;
 		}
 		catch(const std::exception& e)
 		{
@@ -84,6 +84,20 @@ void	Bureaucrat::signForm(Form &target)
 	else
 		std::cerr << this->getName() << " couldn't sign " << target.getName()
 		<< " because it is already signed." << std::endl;
+}
+
+void	Bureaucrat::executeForm(AForm const &target)
+{
+	try
+	{
+		target.execute(*this);
+		std::cout << this->getName() << " executed " << target.getName() << "." << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << this->getName() << " couldn't execute " << target.getName() 
+		<< " because... " << e.what() << std::endl;
+	}		
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const throw()

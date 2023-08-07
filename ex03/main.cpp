@@ -6,7 +6,7 @@
 /*   By: jaiveca- <jaiveca-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 23:17:01 by jaiveca-          #+#    #+#             */
-/*   Updated: 2023/08/07 01:54:35 by jaiveca-         ###   ########.fr       */
+/*   Updated: 2023/08/07 02:15:18 by jaiveca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,37 +15,24 @@
 #include "PresidentialPardonForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "Intern.hpp"
 
 int	main(void)
 {
-	Bureaucrat alfred("Alfred", 5);
-	Bureaucrat thomas("Thomas", 10);
-	PresidentialPardonForm	formP("Criminal Mastermind");
-	RobotomyRequestForm	formR("Mr. Human");
-	ShrubberyCreationForm formS("   ");
+	Bureaucrat	alfred("Alfred", 5);
+	Intern		bob;
 	
-	std::cout << alfred << std::endl;
+	AForm *created = bob.makeForm("PresidentialPardonForm", "Evil Wizard");
 	std::cout << std::endl;
-	std::cout << thomas << std::endl;
-	std::cout << std::endl;
-	std::cout << formP << std::endl;
-	std::cout << formR << std::endl;
-	std::cout << formS << std::endl;
+	std::cout << *created << std::endl;
+	
+	alfred.signForm(*created);
+	alfred.executeForm(*created);
 	
 	std::cout << std::endl;
-	alfred.executeForm(formP);
-	alfred.signForm(formP);
-	thomas.executeForm(formP);
-	alfred.executeForm(formP);
+	std::cout << "-- Attempting to create a form with an unsupported type --" << std::endl;
+	AForm *failure = bob.makeForm("SomethingSomethingForm", "Evil Wizard");
 	
-	std::cout << std::endl;
-	alfred.signForm(formR);
-	alfred.executeForm(formR);
-	alfred.executeForm(formR);
-	alfred.executeForm(formR);
-	
-	std::cout << std::endl;
-	thomas.signForm(formS);
-	thomas.executeForm(formS);
-	
+	delete(created);
+	delete(failure);
 }

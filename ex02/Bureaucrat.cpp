@@ -6,12 +6,11 @@
 /*   By: jaiveca- <jaiveca-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 21:23:34 by jaiveca-          #+#    #+#             */
-/*   Updated: 2023/08/01 18:24:25 by jaiveca-         ###   ########.fr       */
+/*   Updated: 2023/08/07 00:47:57 by jaiveca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat(): _grade(150){}
 
@@ -74,7 +73,7 @@ void	Bureaucrat::signForm(AForm &target)
 		try
 		{
 			target.beSigned(*this);
-			std::cout << this->getName() << " signed " << target.getName() << "!" << std::endl;
+			std::cout << this->getName() << " signed " << target.getName() << "." << std::endl;
 		}
 		catch(const std::exception& e)
 		{

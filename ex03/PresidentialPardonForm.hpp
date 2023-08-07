@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaiveca- <jaiveca-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/30 17:52:18 by jaiveca-          #+#    #+#             */
-/*   Updated: 2023/08/06 22:54:46 by jaiveca-         ###   ########.fr       */
+/*   Created: 2023/07/30 17:54:58 by jaiveca-          #+#    #+#             */
+/*   Updated: 2023/08/01 15:25:20 by jaiveca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-# define SHRUBBERYCREATIONFORM_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+# define PRESIDENTIALPARDONFORM_HPP
 
 #include "AForm.hpp"
-#include <fstream>
 
-class ShrubberyCreationForm: public AForm
+class PresidentialPardonForm: public AForm
 {
 	public:
 	
-		ShrubberyCreationForm();
-		ShrubberyCreationForm(const ShrubberyCreationForm &target);
-		ShrubberyCreationForm(std::string name);
-		~ShrubberyCreationForm();
+		PresidentialPardonForm();
+		PresidentialPardonForm(const PresidentialPardonForm &target);
+		PresidentialPardonForm(std::string name);
+		~PresidentialPardonForm();
 
-		ShrubberyCreationForm	&operator=(const ShrubberyCreationForm &target);
+		PresidentialPardonForm	&operator=(const PresidentialPardonForm &target);
 		void					execute(Bureaucrat const &executor) const;
 		std::string				getTarget() const;
 
 	private:
 	
-		std::string	_target;	
+		std::string	_target;
 };
 
 #endif
