@@ -6,7 +6,7 @@
 /*   By: jaiveca- <jaiveca-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 23:17:01 by jaiveca-          #+#    #+#             */
-/*   Updated: 2023/08/07 02:15:18 by jaiveca-         ###   ########.fr       */
+/*   Updated: 2023/08/07 12:17:46 by jaiveca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,14 @@ int	main(void)
 	Intern		bob;
 	
 	AForm *created = bob.makeForm("PresidentialPardonForm", "Evil Wizard");
+	AForm *created1 = bob.makeForm("RobotomyRequestForm", "Me");
+	AForm *created2 = bob.makeForm("ShrubberyCreationForm", "Plaza");
 	std::cout << std::endl;
 	std::cout << *created << std::endl;
+	std::cout << std::endl;
+	std::cout << *created1 << std::endl;
+	std::cout << std::endl;
+	std::cout << *created2 << std::endl;
 	
 	alfred.signForm(*created);
 	alfred.executeForm(*created);
@@ -34,5 +40,7 @@ int	main(void)
 	AForm *failure = bob.makeForm("SomethingSomethingForm", "Evil Wizard");
 	
 	delete(created);
+	delete(created1);
+	delete(created2);
 	delete(failure);
 }

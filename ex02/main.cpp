@@ -6,7 +6,7 @@
 /*   By: jaiveca- <jaiveca-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 23:17:01 by jaiveca-          #+#    #+#             */
-/*   Updated: 2023/08/07 01:54:35 by jaiveca-         ###   ########.fr       */
+/*   Updated: 2023/08/07 12:10:33 by jaiveca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(void)
 	Bureaucrat thomas("Thomas", 10);
 	PresidentialPardonForm	formP("Criminal Mastermind");
 	RobotomyRequestForm	formR("Mr. Human");
-	ShrubberyCreationForm formS("   ");
+	ShrubberyCreationForm formS("Street");
 	
 	std::cout << alfred << std::endl;
 	std::cout << std::endl;
